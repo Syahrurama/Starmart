@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starbhak Mart</title>
+    <!-- Link CDN FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            background-color: whitesmoke;
+        }
+
+        .navbar {
+            height: 60px;
+            width: 100%;
+            background: rgb(0, 0, 252);
+            border-radius: 10px;
+        }
+
+        .navbar h2 {
+            color: white;
+            padding-left: 30px;
+            padding-top: 15px;
+        }
+
+        .select {
+            height: 50px;
+            width: 20pc;
+            border-radius: 50px;
+            margin-top: 20px;
+            background: rgb(0, 174, 255);
+            color: white;
+            text-align: center;
+            font-size: large;
+            font-weight: bolder;
+        }
+
+        .casir {
+            height: 50px;
+            width: 20pc;
+            border-radius: 50px;
+            margin-top: 20px;
+            background: rgb(0, 174, 255);
+            text-align: center;
+            font-size: large;
+            font-weight: bolder;
+        }
+
+        .casir p {
+            color: white;
+            padding-top: 15px;
+            font-weight: bolder;
+            font-size: large;
+        }
+
+        .item {
+            height: 60px;
+            width: 75%;
+            background: white;
+            margin-left: 25%;
+            margin-top: -10%;
+            border-radius: 10px;
+        }
+
+        .item p {
+            padding-left: 20px;
+            padding-top: 15px;
+            font-size: large;
+            font-weight: bolder;
+            color: rgb(0, 174, 255);
+        }
+
+        .serch {
+            display: flex;
+            margin-bottom: 20px;
+            /* Hilangkan margin-left dan margin-top jika tidak perlu */
+            margin-right: 2%;
+            margin-top: -4%; 
+            justify-content: flex-end; /* Menempatkan item di sebelah kanan */
+            gap: 5px; /* Menambahkan jarak antara input dan tombol */
+        }
+
+        .serch input[type="text"] {
+            padding: 10px 20px;
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            box-sizing: border-box;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            margin-right: 10px; /* Menambahkan jarak antara input dan tombol */
+        }
+
+        .serch input[type="text"]:focus {
+            border-color: rgb(0, 174, 255);
+            box-shadow: 0 0 5px rgba(123, 134, 239, 0.5);
+        }
+
+        .serch button {
+            border: none;
+            background: rgb(0, 174, 255);
+            color: white;
+            padding: 10px 15px; /* Sesuaikan padding sesuai kebutuhan */
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .serch button:hover {
+            background: rgb(0, 130, 200); /* Ubah warna latar belakang saat hover */
+        }
+
+        .serch button i {
+            font-size: 18px;
+        }
+
+
+        .detile {
+            width: 20pc;
+            height: 20pc;
+            background: #d1d1d1;
+            margin-top: 5%;
+            overflow-y: scroll;          
+        }
+
+        .detile-barang {
+            width: 20pc;
+            height: 5pc;
+            background: white;
+            border-radius: 20px;   
+        }
+
+        .total {
+            margin-top: 8%;
+            background:  rgb(0, 174, 255);
+            border-radius: 10px;
+            height: 50px;
+        }
+
+        .total p {
+            color: white;
+            font-weight: bolder;
+            font-size: medium;
+        }
+
+        .detile-barang p {
+            padding-left: 20px;
+            padding-top: 10px;
+            font-weight: bolder;
+            font-size: medium;
+        }
+
+        .tempat {
+            height: 525px; 
+            width: 990px; 
+            border-radius: 20px;
+            background: white;
+            margin-top: -33%;
+            margin-right: 400px;
+            margin-left: 25%;
+            margin-right: 0;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .tempat h1{
+            font-size: larger;
+            text-align: center;
+            padding-top: 15px;
+        }
+
+        .card {
+            width: 200px;
+            height: 300px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+            margin-right: 25px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-text {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .payment {
+            background: rgb(0, 174, 255);
+            width: 100px;
+            height: 100px; 
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            color: white; 
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            margin-left: auto;
+            margin-top: 50px;
+        }
+
+        .payment i {
+            font-size: 40px; 
+            margin-bottom: 5px; 
+        }
+
+        .payment span {
+            display: block; 
+        }
+
+        .item-in-cart {
+            display: flex;
+            border-radius: 0;
+            border: black solid;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .detile-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="navbar">
+        <h2>Starbhak Mart</h2>
+    </div>
+
+    <select class="select">
+        <option value="">Take Away</option>
+        <option value="">Dine In</option>
+    </select>
+
+    <div class="casir">
+        <p>Mang Jay</p>
+    </div>
+
+    <div class="item">
+        <p>Item list</p>
+
+        <div class="serch">
+            <input id="searchInput" type="text" placeholder="Cari barang..." style="display: none;">
+            <button id="searchIcon" type="button"><i class="fas fa-search"></i></button>
+        </div>
+        
+    </div>
+
+    <div class="detile">
+        <div class="detile-content"></div>
+    </div>
+
+    <div class="detile-barang">
+        <p>Discount :</p>
+        <p>Tax :</p>
+        <div class="total">
+            <p>Total Amount:</p>
+        </div>
+    </div>
+
+    <div class="tempat">
+        <div class="card">
+            <img src="Asset/suki.jpg" alt="Topik Capcin">
+            <div class="card-body">
+                <h1 class="product-name">Topik Capcin</h1>
+                <h1 class="product-price">Rp. 10.000</h1>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="Asset/sate.jpg" alt="Sate Padang">
+            <div class="card-body">
+                <h1 class="product-name">Sate Padang</h1>
+                <h1 class="product-price">Rp. 15.000</h1>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="Asset/ayam.jpg" alt="Sate Padang">
+            <div class="card-body">
+                <h1 class="product-name">ayam bakar</h1>
+                <h1 class="product-price">Rp. 25.000</h1>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="Asset/admin.jpg" alt="Sate Padang">
+            <div class="card-body">
+                <h1 class="product-name">udin bandung</h1>
+                <h1 class="product-price">Rp. 50.000</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span>Payment (CTRL+P)</span>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="card.js"></script>
+    <script src="search.js"></script>
+    <script src="print.js"></script>
+</body>
+</html>
